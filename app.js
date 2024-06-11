@@ -1,4 +1,4 @@
-// i can also do it with chaining like .then()and .then method but I prefer async await function 
+// I can do it with .then but I prefer asynchronous function
 
 const url = "https://randomuser.me/api/";
 const btn = document.querySelector("#btn");
@@ -8,8 +8,7 @@ const getData = async () => {
     let response = await fetch(url);
     let Dresult = await response.json();
     console.log(Dresult);
-    let randomIndex = Math.floor(Math.random() * Dresult.results.length);
-    let user = Dresult.results[randomIndex];
+    let user = Dresult.results[0];
     let userinfo = `
         <p>Name: ${user.name.first} ${user.name.last}</p>
         <p>Address: ${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country}, ${user.location.postcode}</p>
@@ -22,6 +21,3 @@ const getData = async () => {
 };
 
 btn.addEventListener('click', getData);
-
-
-
